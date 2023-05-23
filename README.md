@@ -1,58 +1,82 @@
-Simple Shell
-Authors: Nene Lawani and Victor Egele
+# monty
 
-GitHub accounts: NeneLawani and vegele93
+Authors: Nene Lawani and Katekani Madingana
 
-Description
-Simple Shell is a basic implementation of a UNIX command line interpreter in C that supports basic shell commands, handles special characters, implements built-ins, and allows for command execution with arguments. It also handles the "end of file" condition (Ctrl+D).
-Features
-Displays a prompt and waits for the user to enter a command.
-Supports simple command lines made of only one word without semicolons, pipes, redirections, or other advanced features.
-Executes commands with arguments.
-Handles special characters like ", ', `, \, *, &, #.
-Implements built-in commands.
-Uses the PATH environment variable to search for executables.
-Allows moving cursor for editing commands.
-Handles errors and displays error messages when necessary.
-Compiles with the following flags: -Wall -Werror -Wextra -pedantic -std=gnu89
-Usage
-Compile the source code with the following command:
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o shell
+GitHub accounts: [NeneLawani](https://GitHub.com/NeneLawani) and [Katscan-static](https://GitHub.com/Katscan-static)
 
-Run the compiled program:
-./shell
 
-The shell will display a prompt (shell$) and wait for the user to enter a command.
+## Description
 
-Enter a command and press Enter to execute it. The shell will display the output of the command (if any) and then display the prompt again.
+- Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files. Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account.
 
-Use built-in commands like cd to change directory, exit to exit the shell, and help to display help information.
 
-Use special characters like ", ', `, \, *, &, # as needed in your commands.
+## Features
 
-Use Ctrl+D to signal the "end of file" condition and exit the shell.
+- Usage: monty file
+	- where file is the path to the file containing Monty byte code
+- If the user does not give any file or more than one argument to your program, print the error message USAGE: monty file, followed by a new line, and exit with the status EXIT_FAILURE
+- If, for any reason, it’s not possible to open the file, print the error message Error: Can't open file <file>, followed by a new line, and exit with the status EXIT_FAILURE
+	- where <file> is the name of the file
+- If the file contains an invalid instruction, print the error message L<line_number>: unknown instruction <opcode>, followed by a new line, and exit with the status EXIT_FAILURE
+	- where <line_number> is the line number where the instruction appears.
+	- Line numbers always start at 1
+- The monty program runs the bytecodes line by line and stop if either:
+	- it executed properly every line of the file
+	- it finds an error in the file
+	- an error occured
+- If you can’t malloc anymore, print the error message Error: malloc failed, followed by a new line, and exit with status EXIT_FAILURE.
+- You have to use malloc and free and are not allowed to use any other function from man malloc (realloc, calloc, …)
 
-Limitations
-This is a basic implementation and may not handle all possible edge cases or advanced features.
-Only supports simple command lines with one-word commands and arguments.
-Does not support semicolons, pipes, redirections, or other advanced features.
-Built-in commands may not have the same functionality as in a full-fledged shell.
-Error messages may not always provide detailed information on the specific error.
-Contributing
-If you would like to contribute to Simple Shell, please follow these steps:
 
-Fork the repository and clone it to your local machine.
-Create a new branch for your changes.
-Make your changes and thoroughly test them.
-Commit and push your changes to your forked repository.
-Submit a pull request detailing your changes and the reason for the contribution.
-Credits
-Authors: Nene Lawani and Victor Egele
+## Compilation & Output
 
-GitHub accounts: NeneLawani and vegele93
+1. Compile the source code with the following command:
 
-Contact Information
+`gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o monty`
+
+2. Any output must be printed on `stdout`
+
+3. Any error message must be printed on `stderr`
+
+
+## General Requirements
+
+- Allowed editors: `vi`, `vim`, `emacs`
+- All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=c89
+- All your files should end with a new line
+- A `README.md` file, at the root of the folder of the project is mandatory
+- Your code should use the `Betty` style. It will be checked using `betty-style.pl` and `betty-doc.pl`
+- You allowed to use a maximum of one global variable
+- No more than 5 functions per file
+- You are allowed to use the C standard library
+- The prototypes of all your functions should be included in your header file called `monty.h`
+- Don’t forget to push your header file
+- All your header files should be include guarded
+- You are expected to do the tasks in the order shown in the project
+
+
+## Contributing
+
+If you would like to contribute to monty, please follow these steps:
+
+1. Fork the repository and clone it to your local machine.
+2. Create a new branch for your changes.
+3. Make your changes and thoroughly test them.
+4. Commit and push your changes to your forked repository.
+5. Submit a pull request, detailing your suggestions, and the reason for the contribution.
+
+
+## Credits
+
+Authors: Nene Lawani and Katekani Madingana
+
+GitHub accounts: [NeneLawani](https://GitHub.com/NeneLawani) and [Katscan-static](https://GitHub.com/Katscan-static)
+
+
+## Contact Information
+
 For any questions, issues, or inquiries, please contact us at:
 
-Nene Lawani: nene@lawani.com
-Victor Egele: vegele93@gmail.com
+- Nene Lawani: [nene@lawani.com](mailto:nene@lawanicom)
+- Katekani Madingana: [madinganakn@gmail.com](mailto:madinganakn@gmail.com)
+
