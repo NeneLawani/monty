@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * is_number - a function which checks if a command argument is an integer
+ * @n: the command argument
+ *
+ * Return: returns 1 if argument is a number, returns 0 otherwise
+ */
+
 int is_number(char *n)
 {
 	int i = 0;
