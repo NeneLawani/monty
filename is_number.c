@@ -14,6 +14,13 @@ int is_number(char *n)
 	if (!n)
 		return (0);
 
+	if (n[0] == '-')
+	{
+		if (!n[1])
+			return (0);
+		i = 1;
+	}
+
 	for (; n[i]; i++)
 	{
 		if (n[i] < 48 || n[i] > 57)
