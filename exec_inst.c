@@ -27,6 +27,8 @@ void exec_inst(char *line, unsigned int line_number, stack_t **stack)
 					ins_set[i].f(stack, line_number);
 					break;
 				}
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);
 			}
 			else
 			{
