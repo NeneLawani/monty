@@ -11,7 +11,12 @@ void exec_inst(char *line, unsigned int line_number, stack_t **stack)
 {
 	int i;
 	char *token;
-	instruction_t ins_set[] = {{"pall", pall}, {"push", push}, {NULL, NULL}};
+	instruction_t ins_set[] = {
+		{"pall", pall},
+		{"push", push},
+		{"pint", pint},
+		{NULL, NULL}
+	};
 
 	token = strtok(line, " \t\n");
 	for (i = 0; ins_set[i].opcode != NULL; i++)

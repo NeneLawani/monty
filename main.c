@@ -2,7 +2,7 @@
 
 /**
  * main - main function
- * @ac: argument variable
+ * @ac: argument count
  * @av: argument variable
  *
  * Return: always 0 success
