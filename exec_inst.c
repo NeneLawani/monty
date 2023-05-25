@@ -16,6 +16,7 @@ void exec_inst(char *line, unsigned int line_number, stack_t **stack)
 		{"push", push},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 
