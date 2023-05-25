@@ -5,9 +5,9 @@
  * @line: Read line from file
  * @line_number: current line number
  * @stack: head of stack
- * @fl: file pointer
+ *
  */
-void exec_inst(char *line, unsigned int line_number, stack_t **stack, FILE *fl)
+void exec_inst(char *line, unsigned int line_number, stack_t **stack)
 {
 	int i;
 	char *token;
@@ -18,7 +18,7 @@ void exec_inst(char *line, unsigned int line_number, stack_t **stack, FILE *fl)
 	};
 
 	token = strtok(line, " \t\n");
-	for (i = 0; ins_set[i].opcode != NULL && token; i++)
+	for (i = 0; ins_set[i].opcode != NULL; i++)
 	{
 		if (!(strcmp(token, ins_set[i].opcode)))
 		{
@@ -31,7 +31,8 @@ void exec_inst(char *line, unsigned int line_number, stack_t **stack, FILE *fl)
 					ins_set[i].f(stack, line_number);
 					break;
 				}
-				push_error(stack, fl, line_number);
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);
 			}
 			else
 			{
@@ -41,5 +42,8 @@ void exec_inst(char *line, unsigned int line_number, stack_t **stack, FILE *fl)
 		}
 	}
 	if (!ins_set[i].opcode)
-		opcode_error(stack, fl, line_number, token);
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
+		exit(EXIT_FAILURE);
+	}
 }
