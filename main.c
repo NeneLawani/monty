@@ -1,13 +1,18 @@
 #include "monty.h"
-int value;
 
+/**
+ * main - main function
+ * @ac: argument variable
+ * @av: argument variable
+ *
+ * Return: always 0 success
+ */
 int main(int ac, char **av)
 {
 	FILE *file;
-	int i;
-	char line[256], *token;
+	int line_number = 1;
+	char line[256];
 	stack_t *stack = NULL;
-	instruction_t ins_set[] = {{"pall", pall},{"push", push},{NULL,NULL}};
 
 	if (ac != 2)
 	{
@@ -22,28 +27,8 @@ int main(int ac, char **av)
 	}
 	while (fgets(line, sizeof(line), file))
 	{
-		token = strtok(line, " \t\n");
-		for (i = 0; ins_set[i].opcode != NULL; i++)
-		{
-			if (!(strcmp(token, ins_set[i].opcode)))
-			{
-				if (!(strcmp("push", token)))
-				{
-					token = strtok(NULL, " \t\n");
-					if (is_number(token))
-					{
-						value = atoi(token);
-						ins_set[i].f(&stack, 10);
-						break;
-					}
-				}
-				else
-				{
-					ins_set[i].f(&stack, 10);
-					break;
-				}
-			}
-		}
+		exec_inst(line, line_number, &stack);
+		line_number++;
 	}
 	free_nodes(stack);
 	fclose(file);

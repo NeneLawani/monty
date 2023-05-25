@@ -11,6 +11,7 @@ void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *hold;
 
+	(void) line_number;
 	if (*stack)
 	{
 		hold = *stack;
@@ -20,6 +21,5 @@ void pall(stack_t **stack, unsigned int line_number)
 			hold = hold->next;
 		}
 	}
-	line_number++;
 
 }
