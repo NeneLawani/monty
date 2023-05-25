@@ -1,6 +1,6 @@
-   push 23
-  push 43
-push 78
+   push 1
+  push 2
+push 3
 pall
-swap
+add
 pall
