@@ -27,7 +27,7 @@ int main(int ac, char **av)
 	}
 	while (fgets(line, sizeof(line), file))
 	{
-		exec_inst(line, line_number, &stack);
+		exec_inst(line, line_number, &stack, file);
 		line_number++;
 	}
 	free_nodes(stack);
