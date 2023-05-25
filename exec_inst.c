@@ -18,7 +18,7 @@ void exec_inst(char *line, unsigned int line_number, stack_t **stack, FILE *fl)
 	};
 
 	token = strtok(line, " \t\n");
-	for (i = 0; ins_set[i].opcode != NULL; i++)
+	for (i = 0; ins_set[i].opcode != NULL && token; i++)
 	{
 		if (!(strcmp(token, ins_set[i].opcode)))
 		{
