@@ -14,7 +14,7 @@ void exec_inst(char *line, unsigned int line_number, stack_t **stack, FILE *fl)
 	instruction_t ins_set[] = {
 		{"pall", pall}, {"push", push}, {"pint", pint}, {"sub", sub},
 		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
-		{"div", divide},
+		{"div", divide}, {"mul", mul},
 		{NULL, NULL}
 	};
 
