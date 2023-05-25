@@ -42,11 +42,11 @@ void add(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void div(stack_t **stack, unsigned int line_number);
 void free_nodes(stack_t *stack);
 int is_number(char *n);
 void exec_inst(char *line, unsigned int line_number, stack_t **stack, FILE *fl);
 void push_error(stack_t **stack, FILE *file, unsigned int ln);
 void opcode_error(stack_t **stack, FILE *file, unsigned int ln, char *tkn);
-
 
 #endif
