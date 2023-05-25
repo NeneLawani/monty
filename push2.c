@@ -11,6 +11,7 @@ void push(stack_t **stack, unsigned int line_number)
 	/* Get value as a string from input */
 	char *value_str = strtok(NULL, " \t\n");
 	int push_value;
+	stack_t *hold;
 
 	if (!value_str)
 	{
@@ -18,10 +19,8 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	/* Convert value_str to an integer using atoi or other appropriate function */
+	/* Convert value_str to an integer using atoi */
 	push_value = atoi(value_str);
-
-	stack_t *hold;
 
 	hold = malloc(sizeof(stack_t));
 
