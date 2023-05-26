@@ -46,6 +46,7 @@ void divide(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 void free_nodes(stack_t *stack);
 int is_number(char *n);
 void exec_inst(char *line, unsigned int line_number, stack_t **stack, FILE *fl);
