@@ -8,7 +8,7 @@
 
 void rotr(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp, *hold;
+	stack_t *temp = *stack, *hold;
 	int i = 0;
 
 	(void) line_number;
