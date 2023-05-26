@@ -11,7 +11,7 @@ int main(int ac, char **av)
 {
 	FILE *file;
 	int line_number = 1;
-	char line[256];
+	char line[256], *comment;
 	stack_t *stack = NULL;
 
 	if (ac != 2)
@@ -27,8 +27,17 @@ int main(int ac, char **av)
 	}
 	while (fgets(line, sizeof(line), file))
 	{
-		exec_inst(line, line_number, &stack, file);
-		line_number++;
+		comment = strchr(line, '#');
+		if (comment != NULL)
+		{
+			line_number++;
+			continue;
+		}
+		else
+		{
+			exec_inst(line, line_number, &stack, file);
+			line_number++;
+		}
 	}
 	free_nodes(stack);
 	fclose(file);
