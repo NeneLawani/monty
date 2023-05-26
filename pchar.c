@@ -25,5 +25,6 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%c\n", (char)value);
+	putchar(value);
+	putchar('\n');
 }
